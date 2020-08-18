@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Factories Map</string>
+    <string name="edit_factory">Edit Factory</string>
+    <string name="add_factory">Add Factory</string>
+    <string name="insert_data">Please insert a name and address</string>
+    <string name="factory_deleted">Factory was deleted</string>
+    <string name="factory_saved">Factory was saved</string>
+    <string name="factory_updated">Factory was updated</string>
+    <string name="factory_not_saved">Factory was not saved</string>
+    <string name="factories_deleted">All factories were deleted</string>
+    <string name="factory_cant_updated">Factory can\'t be updated</string>
+    <string name="name">Name</string>
+    <string name="please_use_button">Please, use button for input Address</string>
+    <string name="prod_lines_number">Production lines number</string>
+    <string name="address">Address</string>
+
+</resources>
