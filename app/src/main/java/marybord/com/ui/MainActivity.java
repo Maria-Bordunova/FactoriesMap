@@ -1,6 +1,5 @@
 package marybord.com.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,14 +33,12 @@ public class MainActivity extends AppCompatActivity {
     private FactoryViewModel factoryViewModel;
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private FactoryAdapter adapter;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        context = this;
         findViewById(R.id.button_add_factory).setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddEditFactoryActivity.class);
             startActivityForResult(intent, ADD_FACTORY_REQUEST);

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
@@ -52,6 +51,9 @@ public class AddEditFactoryActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
         Intent intent = getIntent();
+        /**
+         * If intent has extra "ID", it means that entity has already existed and window was opened for editing
+         */
         if (intent.hasExtra(EXTRA_ID)) {
             setTitle(R.string.edit_factory);
             Factory factory = intent.getParcelableExtra(EXTRA_FACTORY);
@@ -86,18 +88,15 @@ public class AddEditFactoryActivity extends AppCompatActivity {
     }
 
     private void initSearchButton() {
-        findViewById(R.id.button_search).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new PlaceAutocomplete.IntentBuilder()
-                        .accessToken(Mapbox.getAccessToken() != null ? Mapbox.getAccessToken() : getString(R.string.mapbox_access_token))
-                        .placeOptions(PlaceOptions.builder()
-                                .backgroundColor(Color.parseColor("#EEEEEE"))
-                                .limit(10)
-                                .build(PlaceOptions.MODE_CARDS))
-                        .build(AddEditFactoryActivity.this);
-                startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE);
-            }
+        findViewById(R.id.button_search).setOnClickListener(view -> {
+            Intent intent = new PlaceAutocomplete.IntentBuilder()
+                    .accessToken(Mapbox.getAccessToken() != null ? Mapbox.getAccessToken() : getString(R.string.mapbox_access_token))
+                    .placeOptions(PlaceOptions.builder()
+                            .backgroundColor(Color.parseColor("#EEEEEE"))
+                            .limit(10)
+                            .build(PlaceOptions.MODE_CARDS))
+                    .build(AddEditFactoryActivity.this);
+            startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE);
         });
     }
 
