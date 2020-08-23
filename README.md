@@ -1,5 +1,5 @@
 # FactoriesMap
-The application for Android OS which allows to visualize factories location and store factories data. 
+The application for Android OS allows to visualize factories location and process factories data.
 
 <p align="center">
   <img src="https://i.imgur.com/u8WdRpz.gif" width="256" height="455">
